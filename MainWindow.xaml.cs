@@ -632,7 +632,7 @@ namespace Sharp3DRbxAvatar
 
             try
             {
-                var response = await _downloadClient.GetAsync($"https://getevx.xyz/client/avatar/{userId}");
+                var response = await _downloadClient.GetAsync($"https://api.getevx.xyz/client/avatar/{userId}");
 
                 if (!response.IsSuccessStatusCode)
                 {
