@@ -388,6 +388,16 @@ namespace Sharp3DRbxAvatar
         public MainWindow()
         {
             InitializeComponent();
+
+            MessageBox.Show(
+                    "This application uses a proprietary server owned by M4A1 (getevx.xyz) to download Roblox avatar 3D models.\n\n" +
+                    "If you intend to deploy or redistribute this application, you are responsible for implementing your own model downloading solution. " +
+                    "You are NOT authorized to use M4A1's server unless explicitly permitted by M4A1.\n\n" +
+                    "Unauthorized use of the server is strictly prohibited.",
+                    "Third-Party Server Notice",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
             DisplayGrid.Children.Add(avatarViewer.GetViewport());
 
             debounceTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
@@ -399,14 +409,7 @@ namespace Sharp3DRbxAvatar
 
             Loaded += async (s, e) =>
             {
-                MessageBox.Show(
-                    "This application uses a proprietary server owned by M4A1 (getevx.xyz) to download Roblox avatar 3D models.\n\n" +
-                    "If you intend to deploy or redistribute this application, you are responsible for implementing your own model downloading solution. " +
-                    "You are NOT authorized to use M4A1's server unless explicitly permitted by M4A1.\n\n" +
-                    "Unauthorized use of the server is strictly prohibited.",
-                    "Third-Party Server Notice",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Warning);
+                
 
                 await InitializeAndLoad();
             };
